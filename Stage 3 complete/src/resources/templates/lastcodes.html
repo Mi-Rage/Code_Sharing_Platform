@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <title>Latest</title>
+
+</head>
+
+<body>
+
+<div th:each="eachLastCode : ${lastCodesStore}">
+    <span id="load_date" th:text="${eachLastCode.date}"></span>
+    <pre id="code_snippet" th:text="${eachLastCode.code}"></pre>
+</div>
+
+</body>
+</html>
