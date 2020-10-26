@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:fragment="headerfragment">
+
+    <meta charset="utf-8"/>
+    <link rel="stylesheet"
+          href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/default.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <title th:text="${responseCode.title}">Template Title</title>
+
+</head>
+
+<body>
+
+<span id="load_date" th:text="${responseCode.date}"></span>
+<p>
+    <span th:if="${responseCode.viewLimit}? ${responseCode.views >= 0}">
+<!--        <span th:if="${responseCode.views > 0}">-->
+            <span id="views_restriction" th:text="${responseCode.views}"></span> more views allowed
+<!--        </span>-->
+    </span>
+</p>
+<p>
+    <span th:if="${responseCode.timeLimit}? ${responseCode.time >= 0}">
+<!--    <span th:if="${responseCode.time > 0}">-->
+    The code will be available for <span id="time_restriction" th:text="${responseCode.time}"></span> seconds
+    </span>
+</p>
+<pre id="code_snippet"><code th:text="${responseCode.code}"></code></pre>
+
+
+</body>
+</html>
